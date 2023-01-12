@@ -1,18 +1,25 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
-int main()
-{
-	float tamKisim, ondaliKisim, sayi;
-	printf("Ondalik sayinizi giriniz: ");
-	scanf("%f,%f", &tamKisim, &ondaliKisim);
-	
-	if(tamKisim<0)
-		sayi=tamKisim-ondaliKisim/100;
-	else
-		sayi=tamKisim+ondaliKisim/100;
+int main() {
+  char str[100];  
+  int i;
 
-	printf("Sayiniz, %g", sayi);
-	
-	return 0;
+  printf("Ondalikli sayi giriniz: ");
+  gets(str);  
+
+  int len = strlen(str); 
+  
+  for (i = 0; i < len; i++) 
+  {
+    if (str[i] == ',') 
+    {
+      str[i] = '.';
+      break;
+    }
+  }
+
+  printf("Duzeltilmis ondalikli sayi: %s\n", str);
+
+  return 0;
 }
